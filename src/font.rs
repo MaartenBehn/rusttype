@@ -33,6 +33,10 @@ pub enum Font<'a> {
     Owned(Arc<owned_ttf_parser::OwnedFace>),
 }
 
+unsafe impl Sync for Font<'_> {
+
+}
+
 impl fmt::Debug for Font<'_> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(f, "Font")
